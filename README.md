@@ -1,5 +1,7 @@
 # php-ip-quality-score
 
+[![Build Status](https://travis-ci.org/jamalo/php-ip-quality-score.svg?branch=master)](https://travis-ci.org/jamalo/php-ip-quality-score)
+
 ## Installation
 
 - [Download composer](https://getcomposer.org)

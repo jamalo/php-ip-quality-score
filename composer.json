@@ -1,0 +1,31 @@
+{
+  "name": "jamalo/php-ip-quality-score",
+  "homepage": "https://www.ipqualityscore.com/",
+  "description": "IPQualityScore API for PHP",
+  "keywords": [
+    "ipqualityscore",
+    "ipqs"
+  ],
+  "type": "library",
+  "authors": [
+    {
+      "name": "Jamal",
+      "email": "ojamal9@hotmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "symfony/http-client": "^5.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "IPQualityScore\\": "src/IPQualityScore/"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8"
+  }
+}

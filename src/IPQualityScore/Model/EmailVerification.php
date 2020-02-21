@@ -3,7 +3,12 @@
 namespace IPQualityScore\Model;
 
 use IPQualityScore\IPQualityScore;
+use IPQualityScore\Response\EmailVerificationResponse;
 
+/**
+ * Class EmailVerification
+ * @package IPQualityScore\Model
+ */
 class EmailVerification
 {
     /** @var string */
@@ -66,6 +71,7 @@ class EmailVerification
      * @throws \IPQualityScore\Exception\AuthenticationException
      * @throws \IPQualityScore\Exception\InvalidRequestException
      * @throws \IPQualityScore\Exception\UnknownApiErrorException
+     * @noinspection PhpDocMissingThrowsInspection
      */
     public function getResponse(string $email)
     {

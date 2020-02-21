@@ -3,6 +3,7 @@
 namespace IPQualityScore\Client;
 
 use IPQualityScore\Exception\AuthenticationException;
+use IPQualityScore\Exception\InvalidIPAddressException;
 use IPQualityScore\Exception\InvalidRequestException;
 use IPQualityScore\Exception\UnknownApiErrorException;
 use IPQualityScore\IPQualityScore;
@@ -101,6 +102,7 @@ class IPQualityScoreClient
     /**
      * @return array
      * @throws AuthenticationException
+     * @throws InvalidIPAddressException
      * @throws InvalidRequestException
      * @throws UnknownApiErrorException
      * @noinspection PhpDocMissingThrowsInspection
@@ -128,13 +130,17 @@ class IPQualityScoreClient
 
     /**
      * @param string $body
-     * @return AuthenticationException|UnknownApiErrorException
+     * @return AuthenticationException|InvalidIPAddressException|UnknownApiErrorException
      */
     private function specificError(string $body)
     {
         switch ($body) {
             case 'Invalid or unauthorized key. Please check the API key and try again.':
                 return new AuthenticationException('Invalid or unauthorized key. Please check the API key and try again.');
+                break;
+            case 'Invalid IPv4 address, IPv6 address or hostname. Please check the IP/Hostname and try again.':
+            case 'Invalid IPv4 or IPv6 address. Please check the IP and try again.':
+                return new InvalidIPAddressException('Invalid IPv4 or IPv6 address. Please check the IP and try again.');
                 break;
             default:
                 return new UnknownApiErrorException($body);

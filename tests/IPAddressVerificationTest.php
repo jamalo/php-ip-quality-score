@@ -5,9 +5,9 @@ use IPQualityScore\IPQualityScore;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class EmailVerificationTest
+ * Class IPAddressVerificationTest
  */
-class EmailVerificationTest extends TestCase
+class IPAddressVerificationTest extends TestCase
 {
     /** @var \PHPUnit\Framework\MockObject\MockObject|IPQualityScoreClient */
     private $client;
@@ -36,12 +36,11 @@ class EmailVerificationTest extends TestCase
         $this->client
             ->expects($this->any())
             ->method('performHttpRequest')
-            ->willReturn(['valid' => true, 'overall_score' => 5, 'deliverability' => 'high', 'disposable' => false]);
+            ->willReturn(['vpn' => false, 'overall_score' => 5, 'mobile' => false, 'operating_system' => 'Windows 10']);
 
-        $response = $this->IPQualityScore->emailVerification->getResponse('test@example.com');
-        $this->assertTrue($response->isValid());
-        $this->assertEquals(5, $response->getOverallScore());
-        $this->assertEquals('high', $response->getDeliverability());
-        $this->assertFalse($response->isDisposable());
+        $response = $this->IPQualityScore->IPAddressVerification->getResponse('127.0.0.1');
+        $this->assertFalse($response->isVpn());
+        $this->assertFalse($response->isMobile());
+        $this->assertEquals('Windows 10', $response->getOperatingSystem());
     }
 }

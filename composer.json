@@ -4,7 +4,10 @@
   "description": "IPQualityScore API for PHP",
   "keywords": [
     "ipqualityscore",
-    "ipqs"
+    "ipqs",
+    "email verification",
+    "vpn detection",
+    "tor detection"
   ],
   "type": "library",
   "authors": [

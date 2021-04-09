@@ -30,6 +30,9 @@ class IPAddressVerification
     private $allowPublicAccessPoints = true;
 
     /** @var bool */
+    private $mobile = false;
+
+    /** @var bool */
     private $lighterPenalties = false;
 
     /**
@@ -116,6 +119,24 @@ class IPAddressVerification
     /**
      * @return bool
      */
+    public function isMobile(): bool
+    {
+        return $this->mobile;
+    }
+
+    /**
+     * @param bool $mobile
+     * @return IPAddressVerification
+     */
+    public function setMobile(bool $mobile): IPAddressVerification
+    {
+        $this->mobile = $mobile;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
     public function isLighterPenalties(): bool
     {
         return $this->lighterPenalties;
@@ -146,6 +167,7 @@ class IPAddressVerification
             'user_language' => $this->userLanguage,
             'strictness' => $this->strictness,
             'allow_public_access_points' => $this->allowPublicAccessPoints === true ? 'true' : 'false',
+            'mobile' => $this->mobile === true ? 'true' : 'false',
             'lighter_penalties' => $this->lighterPenalties === true ? 'true' : 'false'
         ]);
 

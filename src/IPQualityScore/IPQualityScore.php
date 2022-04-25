@@ -6,6 +6,7 @@ use IPQualityScore\Client\IPQualityScoreClient;
 use IPQualityScore\Model\EmailVerification;
 use IPQualityScore\Model\IPAddressVerification;
 use IPQualityScore\Model\PhoneVerification;
+
 /**
  * Class IPQualityScore
  * @package IPQualityScore
@@ -13,7 +14,7 @@ use IPQualityScore\Model\PhoneVerification;
 class IPQualityScore
 {
     /** @var string */
-    public const VERSION = '2.0.0';
+    public const VERSION = '2.0.2';
 
     /** @var string */
     public const API_URL = 'https://www.ipqualityscore.com/api';

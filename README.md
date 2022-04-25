@@ -22,7 +22,20 @@ if ($result->isSuccess() && $result->isValid() && $result->getDeliverability() =
     //show alert tot user
 }
 ```
+## Phone Validation Example
+IPQualityScore's Proxy Detection API allows you to Proactively Prevent Fraud™ via a simple API that provides over 25 data points for risk analysis, geo location, and IP intelligence.
 
+```php
+$key = '--api--key--';
+$qualityScore = new IPQualityScore($key);
+$result = $qualityScore->phoneVerification->getResponse('18001234567');
+
+if ($result->isSuccess() && $result->isValid() && !$result->isRisky() && !$result->isVoip() && !$result->isRecentAbuse()) {
+    // do something...
+} else {
+    //show alert tot user
+}
+```
 ## Proxy & VPN Detection Example
 IPQualityScore's Proxy Detection API allows you to Proactively Prevent Fraud™ via a simple API that provides over 25 data points for risk analysis, geo location, and IP intelligence.
 

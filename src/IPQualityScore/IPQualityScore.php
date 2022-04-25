@@ -5,7 +5,7 @@ namespace IPQualityScore;
 use IPQualityScore\Client\IPQualityScoreClient;
 use IPQualityScore\Model\EmailVerification;
 use IPQualityScore\Model\IPAddressVerification;
-
+use IPQualityScore\Model\PhoneVerification;
 /**
  * Class IPQualityScore
  * @package IPQualityScore
@@ -27,6 +27,9 @@ class IPQualityScore
     /** @var IPAddressVerification */
     public $IPAddressVerification;
 
+    /** @var PhoneVerification */
+    public $phoneVerification;
+
     /** @var IPQualityScoreClient */
     public $client;
 
@@ -39,6 +42,7 @@ class IPQualityScore
         $this->apiKey = $apiKey;
         $this->emailVerification = new EmailVerification($this);
         $this->IPAddressVerification = new IPAddressVerification($this);
+        $this->phoneVerification = new PhoneVerification($this);
         $this->client = new IPQualityScoreClient();
     }
 }

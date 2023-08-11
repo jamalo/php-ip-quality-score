@@ -82,7 +82,7 @@ class EmailVerification
         ]);
 
         $request = $this->IPQualityScore->client
-            ->setEndpoint(sprintf(IPQualityScore::API_URL . self::API_ENDPOINT, $this->IPQualityScore->apiKey, $email, $parameters))
+            ->setEndpoint(sprintf(IPQualityScore::API_URL . self::API_ENDPOINT, $this->IPQualityScore->apiKey, urlencode($email), $parameters))
             ->setMethod('GET')
             ->performHttpRequest();
 
